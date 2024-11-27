@@ -53,19 +53,11 @@ def main():
         # Linha do horizonte
         pygame.draw.line(WINDOW, WHITE, (0, horizon_y), (WIDTH, horizon_y), 2)
 
-        # Triângulo principal (estrada)
-        main_road_points = [
-            (WIDTH // 2 - road_width_top // 2, road_top_y),  # Topo esquerdo
-            (WIDTH // 2 + road_width_top // 2, road_top_y),  # Topo direito
-            (WIDTH // 2 + road_width_base // 2, road_base_y),  # Base direita
-            (WIDTH // 2 - road_width_base // 2, road_base_y),  # Base esquerda
-        ]
-        pygame.draw.polygon(WINDOW, GRAY, main_road_points)
-
+       
         # Triângulo invertido (curvas)
         curve_points = [
-            (WIDTH // 2 - road_width_top // 2, road_top_y),  # Topo esquerdo
-            (WIDTH // 2 + road_width_top // 2, road_top_y),  # Topo direito
+            (WIDTH // 2 - road_width_top * 4 ,road_base_y),  # Topo esquerdo
+            (WIDTH // 2 + road_width_top * 4,road_base_y),  # Topo direito
             (WIDTH // 2 + curve_offset, road_top_y - 100),  # Ponta invertida
         ]
         pygame.draw.polygon(WINDOW, WHITE, curve_points)
