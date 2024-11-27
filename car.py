@@ -27,7 +27,7 @@ road_width_base = 300  # Largura da base do triângulo principal
 # Configurações do triângulo invertido (curvas)
 curve_offset = 0  # Deslocamento inicial da base
 curve_speed = 2  # Velocidade do deslocamento
-curve_amplitude = 100  # Amplitude máxima das curvas
+curve_amplitude = 400  # Amplitude máxima das curvas
 curve_frequency = 0.02  # Frequência das curvas
 
 # Função principal
