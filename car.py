@@ -43,17 +43,18 @@ def main():
                 running = False
 
         # Atualizar o deslocamento da base do triângulo invertido
-        curve_offset = math.sin(frame * curve_frequency) * curve_amplitude
-        frame += curve_speed
+        road_top_y=road_top_y+20
+        if road_top_y>road_base_y - 100:
+            road_top_y=100
+            curve_offset = math.sin(frame * curve_frequency) * curve_amplitude
+            frame += curve_speed
 
         # Desenhar a cena
         WINDOW.fill(BLACK)
 
         # Linha do horizonte
         pygame.draw.line(WINDOW, WHITE, (0, horizon_y), (WIDTH, horizon_y), 2)
-        road_top_y=road_top_y+20
-        if road_top_y>road_base_y - 100:
-            road_top_y=100
+        
         # Triângulo principal (estrada)
         main_road_points = [
             (WIDTH // 2 - road_width_top // 2, road_top_y),  # Topo esquerdo
