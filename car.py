@@ -27,12 +27,13 @@ curve_offset = 0  # Deslocamento inicial da base
 curve_speed = 2  # Velocidade do deslocamento
 curve_amplitude = 400  # Amplitude máxima das curvas
 curve_frequency = 0.02  # Frequência das curvas
-
+curveplus=40
 # Função principal
 def main():
     global curve_offset
     global road_top_y
     global horizon_y
+    global curveplus
     clock = pygame.time.Clock()
     running = True
     frame = 0  # Contador de quadros para gerar movimento dinâmico
@@ -45,9 +46,14 @@ def main():
         # Atualizar o deslocamento da base do triângulo invertido
         road_top_y=road_top_y+20
         if road_top_y>road_base_y - 100:
-            road_top_y=100
-            curve_offset = math.sin(frame * curve_frequency) * curve_amplitude
-            frame += curve_speed
+            road_top_y=50
+            curve_offset = curve_offset + curveplus
+            if curve_offset > WIDTH+WIDTH/2:
+                curveplus=-40
+            if curve_offset <-(WIDTH/2):
+                curveplus=+40
+            
+            
 
         # Desenhar a cena
         WINDOW.fill(BLACK)
@@ -68,8 +74,8 @@ def main():
         curve_points = [
             (WIDTH // 2 - road_width_top // 2, road_top_y),  # Topo esquerdo
             (WIDTH // 2 + road_width_top // 2, road_top_y),  # Topo direito
-            (WIDTH // 2 + curve_offset+60,horizon_y),  # Ponta invertida
-            (WIDTH // 2 + curve_offset-60,horizon_y),  # Ponta invertida
+            ( curve_offset+60,horizon_y),  # Ponta invertida
+            ( curve_offset-60,horizon_y),  # Ponta invertida
         ]
         pygame.draw.polygon(WINDOW, WHITE, curve_points)
 
