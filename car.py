@@ -68,7 +68,8 @@ def main():
         curve_points = [
             (WIDTH // 2 - road_width_top // 2, road_top_y),  # Topo esquerdo
             (WIDTH // 2 + road_width_top // 2, road_top_y),  # Topo direito
-            (WIDTH // 2 + curve_offset,horizon_y),  # Ponta invertida
+            (WIDTH // 2 + curve_offset+60,horizon_y),  # Ponta invertida
+            (WIDTH // 2 + curve_offset-60,horizon_y),  # Ponta invertida
         ]
         pygame.draw.polygon(WINDOW, WHITE, curve_points)
 
