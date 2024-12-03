@@ -1,2 +1,3 @@
-# 3d.car.race
-a race of cars  
+# dinamic.list
+
+creats a dinamic list
